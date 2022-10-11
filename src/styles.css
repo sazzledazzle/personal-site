@@ -1,0 +1,128 @@
+:root {
+    /* Colors */
+    --clr-lightest: #F6F6F6;
+    --clr-dark: #8785A2;
+    --clr-darkest: #000000;
+    --clr-highlight: #61C0BF;
+
+    --clr-text: var(--clr-darkest);
+    --clr-button-bg: var(--clr-lightest);
+
+    --clr-intro-bg: var(--clr-lightest);
+    --clr-intro-header: #8785A2;
+    --clr-nav-bg: #99A799;
+    --clr-portfolio-bg: #D3E4CD;
+    --clr-portfolio-header: var(--clr-dark);
+    --clr-tools-bg: #FEF5ED;
+    --clr-tools-header: #D0B8A8;
+    --clr-about-bg: #99A799;
+    --clr-about-header: #E8DFCA;
+    --clr-contact-bg: #E8DFCA;
+    --clr-contact-header: var(--clr-dark);
+    --clr-footer: #8785A2;
+    --clr-footer-text: var(--clr-lightest);
+    --clr-footer-underline: #61C0BF;
+
+    /* Fonts */
+    --ff-headers: 'Yeseva One', serif;
+    --ff-main: 'Josefin Sans', sans-serif;
+
+    /* Padding */
+    --padding-side-sm: 1.5rem;
+    --padding-side-md: 3rem;
+    --padding-side-lg: 10rem;
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html, body {
+    height: 100%;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    background-color: var(--clr-intro-bg);
+    color: var(--clr-text);
+    font-display: optional;
+    font-family: var(--ff-main);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+section {
+    min-height: 100vh;
+    padding: 1.5rem var(--padding-side-sm);
+  }
+
+h1, h2 {
+    font-family: var(--ff-headers);
+    line-height: 1;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+
+
+@media (min-width: 700px) {
+    body {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 3rem var(--padding-side-md);
+    }
+
+    h2 {
+    font-size: 3rem;
+ }       
+}
+
+@media (min-width: 1200px) {
+    section {
+        padding: 3rem var(--padding-side-lg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+   }
+   
