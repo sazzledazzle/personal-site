@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useProjects from "../hooks/useProjects";
 
 const Section = styled.section`
   background-color: var(--clr-portfolio-bg);
@@ -9,6 +10,8 @@ const Section = styled.section`
 `;
 
 const Portfolio = () => {
+  const [projects, isLoading] = useProjects();
+
   return (
     <Section aria-labelledby="portfolio">
       <h2 id="portfolio">Portfolio</h2>

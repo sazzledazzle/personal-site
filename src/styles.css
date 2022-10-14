@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('./assets/fonts/yeseva-one-v20-latin-regular.woff2') format('woff2'), 
+    url('./assets/fonts/yeseva-one-v20-latin-regular.woff') format('woff');
+  }
+
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''), url('./assets/fonts/josefin-sans-v25-latin-300.woff2') format('woff2'), 
+    url('./assets/fonts/josefin-sans-v25-latin-300.woff') format('woff'); 
+  }
+
 :root {
     /* Colors */
     --clr-lightest: #F6F6F6;
@@ -68,7 +84,7 @@ a {
 body {
     background-color: var(--clr-intro-bg);
     color: var(--clr-text);
-    font-display: optional;
+    /* font-display: optional; */
     font-family: var(--ff-main);
     font-size: 0.875rem;
     line-height: 1.5;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import MenuButton from "./MenuButton";
+import { Fade as Hamburger } from "hamburger-react";
 
 const HeaderContainer = styled.header`
   background-color: var(--clr-intro-bg);
@@ -86,6 +87,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
+      {/* <Hamburger toggled={isOpen} toggle={setOpen} size={24} label="show menu" /> */}
       <MenuButton isOpen={isOpen} setOpen={() => setOpen(!isOpen)} />
       <Nav id="primary-nav" className={isOpen && "open"}>
         <Ul>
