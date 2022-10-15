@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MenuButton from "./MenuButton";
 import { Fade as Hamburger } from "hamburger-react";
 
@@ -92,16 +93,16 @@ const Header = () => {
       <Nav id="primary-nav" className={isOpen && "open"}>
         <Ul>
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#portfolio">Portfolio</a>
+            <a href="/#portfolio">Portfolio</a>
           </li>
           <li>
-            <a href="#about">About me</a>
+            <Link to="/#about">About me</Link>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="/#contact">Contact</a>
           </li>
         </Ul>
       </Nav>

@@ -4,6 +4,7 @@ import { getSingleProject } from "../contentful";
 export default function useSingleProject(slug) {
   const [project, setProject] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [isError, setError] = useState(false);
 
   useEffect(() => {
     const capitalised = slug.split("-").map((word) => word[0].toUpperCase() + word.slice(1));
@@ -19,8 +20,11 @@ export default function useSingleProject(slug) {
         setProject(project);
         setLoading(false);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(`Error: ${err.message}`);
+        setError(true);
+      });
   }, [slug]);
 
-  return [project, isLoading];
+  return [project, isLoading, isError];
 }
