@@ -1,16 +1,22 @@
-import styled from "styled-components";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import useWindowSize from "../hooks/useWindowSize";
 import MenuButton from "./MenuButton";
-import { Fade as Hamburger } from "hamburger-react";
+import Navlinks from "./Navlinks";
+import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   background-color: var(--clr-intro-bg);
-  padding: var(--padding-side-sm);
+  padding: 1.5rem calc(var(--padding-side-sm) - 0.5rem);
+  position: relative;
   width: 100%;
+  z-index: 5;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: 700px) {
-    padding: var(--padding-side-md);
+    padding: 2rem var(--padding-side-sm);
+    opacity: 0.9;
   }
 
   /* Don't fix header when mobile landscape */
@@ -21,7 +27,7 @@ const HeaderContainer = styled.header`
   }
 
   @media (min-width: 1200px) {
-    padding: 3.5rem var(--padding-side-lg);
+    padding: 2rem var(--padding-side-lg);
     position: fixed;
     top: 0;
     left: 0;
@@ -32,79 +38,44 @@ const Nav = styled.nav`
   display: block;
 
   @media (max-width: 699px) {
-    display: none;
     background-color: var(--clr-nav-bg);
     width: 50%;
     max-width: 12.5rem;
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 2.5rem;
     position: absolute;
-    top: 4rem;
-    right: var(--padding-side-sm);
+    top: 6rem;
+    right: 0;
+    transform: translateX(110%);
+    transition: 1s;
 
     &.open {
-      display: block;
-    }
-  }
-`;
-
-const Ul = styled.ul`
-  line-height: 1;
-  text-transform: uppercase;
-
-  & a {
-    color: var(--clr-lightest);
-    text-decoration: none;
-  }
-
-  & li + li {
-    margin-top: 1.5rem;
-  }
-
-  @media (min-width: 700px) {
-    display: flex;
-    justify-content: end;
-
-    & li + li {
-      margin-top: unset;
-      margin-left: 2rem;
-    }
-
-    & a {
-      color: var(--clr-darkest);
-    }
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 1.125rem;
-
-    & li + li {
-      margin-left: 3rem;
+      transform: translateX(0);
     }
   }
 `;
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const width = useWindowSize();
+
+  useEffect(() => {
+    isOpen &&
+      window.addEventListener("scroll", () => {
+        setOpen(false);
+      });
+
+    if (width >= 700) setOpen(false);
+
+    return () => {
+      window.removeEventListener("scroll", () => setOpen(false));
+    };
+  }, [width, isOpen, setOpen]);
 
   return (
     <HeaderContainer>
-      {/* <Hamburger toggled={isOpen} toggle={setOpen} size={24} label="show menu" /> */}
       <MenuButton isOpen={isOpen} setOpen={() => setOpen(!isOpen)} />
       <Nav id="primary-nav" className={isOpen && "open"}>
-        <Ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <a href="/#portfolio">Portfolio</a>
-          </li>
-          <li>
-            <Link to="/#about">About me</Link>
-          </li>
-          <li>
-            <a href="/#contact">Contact</a>
-          </li>
-        </Ul>
+        <Navlinks isOpen={isOpen} />
       </Nav>
     </HeaderContainer>
   );

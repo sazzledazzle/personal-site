@@ -4,11 +4,31 @@ import PortfolioItem from "./PortfolioItem";
 
 const Section = styled.section`
   background-color: var(--clr-portfolio-bg);
-  min-height: 50vh;
 
   & h2 {
     color: var(--clr-portfolio-header);
     margin-bottom: 2rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -6rem;
+    background-color: var(--clr-portfolio-bg);
+    width: 100%;
+    height: 12rem;
+    transform: skewY(-12deg);
+    z-index: -1;
+
+    @media (min-width: 700px) {
+      transform: skewY(-6deg);
+      top: -4rem;
+    }
+
+    @media (min-width: 1200px) {
+      top: -6rem;
+    }
   }
 `;
 

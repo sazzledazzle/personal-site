@@ -2,24 +2,27 @@
     font-family: 'Yeseva One';
     font-style: normal;
     font-weight: 400;
-    src: local(''), url('./assets/fonts/yeseva-one-v20-latin-regular.woff2') format('woff2'), 
-    url('./assets/fonts/yeseva-one-v20-latin-regular.woff') format('woff');
+    font-display: fallback;
+    src: local(''), url('/fonts/yeseva-one-v20-latin-regular.woff2') format('woff2'), 
+    url('/fonts/yeseva-one-v20-latin-regular.woff') format('woff');
   }
 
 @font-face {
     font-family: 'Josefin Sans';
     font-style: normal;
     font-weight: 300;
-    src: local(''), url('./assets/fonts/josefin-sans-v25-latin-300.woff2') format('woff2'), 
-    url('./assets/fonts/josefin-sans-v25-latin-300.woff') format('woff'); 
+    font-display: fallback;
+    src: local(''), url('/fonts/josefin-sans-v25-latin-300.woff2') format('woff2'), 
+    url('/fonts/josefin-sans-v25-latin-300.woff') format('woff'); 
   }
 
   @font-face {
     font-family: 'Josefin Sans';
     font-style: bold;
     font-weight: 600;
-    src: local(''), url('./assets/fonts/josefin-sans-v25-latin-600.woff2') format('woff2'), 
-    url('./assets/fonts/josefin-sans-v25-latin-600.woff') format('woff'); 
+    font-display: fallback;
+    src: local(''), url('/fonts/josefin-sans-v25-latin-600.woff2') format('woff2'), 
+    url('/fonts/josefin-sans-v25-latin-600.woff') format('woff'); 
   }
 
 :root {
@@ -31,6 +34,7 @@
 
     --clr-text: var(--clr-darkest);
     --clr-button-bg: var(--clr-lightest);
+    --clr-focus: var(--clr-dark);
 
     --clr-intro-bg: var(--clr-lightest);
     --clr-intro-header: #8785A2;
@@ -52,10 +56,12 @@
     --ff-main: 'Josefin Sans', sans-serif;
 
     /* Padding */
-    --padding-side-sm: 1.5rem;
+    /* --padding-side-sm: 1.5rem; */
+    --padding-side-sm: 10%;
     --padding-side-md: 3rem;
     --padding-side-lg: 10rem;
-
+    /* --padding-main-sm: 2rem; */
+    --max-width: 1680px;
 }
 
 *, *::before, *::after {
@@ -69,7 +75,7 @@
 }
 
 html, body {
-    height: 100%;
+    overflow-x: hidden;
 }
 
 html:focus-within {
@@ -92,16 +98,15 @@ a {
 body {
     background-color: var(--clr-intro-bg);
     color: var(--clr-text);
-    /* font-display: optional; */
     font-family: var(--ff-main);
     font-size: 0.875rem;
-    line-height: 1.5;
+    line-height: 1.6;
     text-rendering: optimizeSpeed;
 }
 
 section {
-    min-height: 100vh;
-    padding: 1.5rem var(--padding-side-sm);
+    /* min-height: 100vh; */
+    padding: 0 var(--padding-side-sm);
   }
 
 h1, h2 {
@@ -113,15 +118,21 @@ h2 {
     font-size: 2rem;
 }
 
-
+.sr-only {
+    position: absolute; 
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px; 
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
 @media (min-width: 700px) {
     body {
         font-size: 1rem;
-    }
-
-    section {
-        padding: 3rem var(--padding-side-md);
     }
 
     h2 {
@@ -129,11 +140,15 @@ h2 {
  }       
 }
 
-@media (min-width: 1200px) {
-    section {
+ @media (min-width: 1200px) {
+    /* section {
         padding: 3rem var(--padding-side-lg);
+    } */
+
+    body {
+        font-size: 1.25rem;
     }
-}
+} 
 
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {

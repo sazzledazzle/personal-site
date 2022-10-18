@@ -5,27 +5,22 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import styled from "styled-components";
 
-const Main = styled.main`
-  @media (min-width: 700px) {
-    margin-top: 7rem;
-  }
-
-  @media (min-width: 1200px) {
-    margin-top: 8.125rem;
-  }
+const Container = styled.div`
+  position: relative;
+  z-index: 1;
 `;
 
 const Home = () => {
   return (
-    <Main>
+    <main>
       <Intro />
-      <div id="portfolio">
+      <Container id="portfolio">
         <Portfolio />
         <Tools />
-      </div>
+      </Container>
       <About />
       <Contact />
-    </Main>
+    </main>
   );
 };
 
