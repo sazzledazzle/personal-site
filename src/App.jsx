@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
 function App() {
-  const { pathname, hash, key } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     // if not hash scroll to top
@@ -17,15 +17,13 @@ function App() {
     }
     // else scroll to id
     else {
-      setTimeout(() => {
-        const id = hash.replace("#", "");
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView();
-        }
-      }, 0);
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView();
+      }
     }
-  }, [pathname, hash, key]);
+  }, [pathname, hash]);
 
   return (
     <>

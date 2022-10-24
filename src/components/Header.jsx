@@ -6,13 +6,13 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   background-color: var(--clr-intro-bg);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
   padding: 1.5rem calc(var(--padding-side-sm) - 0.5rem);
   position: relative;
   width: 100%;
   z-index: 5;
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
 
   @media (min-width: 700px) {
     padding: 2rem var(--padding-side-sm);
@@ -22,15 +22,15 @@ const HeaderContainer = styled.header`
   /* Don't fix header when mobile landscape */
   @media (min-width: 700px) and (orientation: portrait) {
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
   }
 
   @media (min-width: 1200px) {
     padding: 2rem var(--padding-side-lg);
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
   }
 `;
 
@@ -39,14 +39,14 @@ const Nav = styled.nav`
 
   @media (max-width: 699px) {
     background-color: var(--clr-nav-bg);
-    width: 50%;
     max-width: 12.5rem;
     padding: 2.5rem 2.5rem;
     position: absolute;
-    top: 6rem;
     right: 0;
+    top: 6rem;
     transform: translateX(110%);
     transition: 1s;
+    width: 50%;
 
     &.open {
       transform: translateX(0);

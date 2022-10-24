@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const Container = styled.div`
-  border: 1px solid var(--clr-highlight);
+  border: 1px solid var(--clr-button-border);
   padding: 0.5rem 0.75rem;
   width: fit-content;
+  background-color: rgba(var(--clr-button-bg), 0);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: rgba(var(--clr-button-bg), 0.5);
+  }
 `;
 
 const baseStyles = css`
-  background-color: transparent;
   text-transform: uppercase;
   text-decoration: none;
 `;

@@ -2,6 +2,8 @@ import Button from "./Button";
 import styled from "styled-components";
 
 const Form = styled.form`
+  max-width: 800px;
+
   & input,
   textarea {
     background-color: var(--clr-lightest);
@@ -62,20 +64,22 @@ const ContactForm = () => {
           <label htmlFor="name">
             Your name <span>*</span>
           </label>
-          <input type="text" name="name" id="name" placeholder="Insert your name here" />
+          <input type="text" name="name" id="name" placeholder="Insert your name here" required />
         </div>
         <div>
           <label htmlFor="email">
             Your email <span>*</span>
           </label>
-          <input type="email" name="email" id="email" placeholder="email@example.com" />
+          <input type="email" name="email" id="email" placeholder="email@example.com" required />
         </div>
       </Container>
       <label htmlFor="message">
         Message <span>*</span>
       </label>
       <textarea name="message" id="message" cols="50" rows="10" placeholder="How can I help?"></textarea>
-      <Button type="submit">Send message</Button>
+      <Button type="submit" required>
+        Send message
+      </Button>
     </Form>
   );
 };

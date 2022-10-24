@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 
 const Section = styled.section`
   background-color: var(--clr-intro-bg);
-  padding-bottom: 4rem;
-  max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
+  max-width: var(--max-width);
+  padding-bottom: 4rem;
 
   & h1 {
     color: var(--clr-intro-header);
-    font-size: 96px;
+    font-size: 3rem;
     font-size: clamp(3.4375rem, -0.10625rem + 16.2vw, 6rem);
     line-height: 1.2;
 
@@ -20,10 +20,11 @@ const Section = styled.section`
       color: var(--clr-text);
       display: block;
       font-family: var(--ff-main);
-      font-size: 48px;
+      font-size: 1rem;
       font-size: clamp(1.125rem, -0.08747rem + 4.743vw, 1.875rem);
-      margin-left: clamp(8rem, -1.615rem + 43.956vw, 13rem);
       line-height: 1;
+      margin-left: 6rem;
+      margin-left: clamp(8rem, -1.615rem + 43.956vw, 13rem);
     }
   }
 
@@ -32,7 +33,7 @@ const Section = styled.section`
   }
 
   @media (min-width: 700px) and (orientation: portrait) {
-    margin-top: 5rem;
+    margin-top: var(--header-md);
   }
 
   @media (min-width: 700px) {
@@ -43,22 +44,22 @@ const Section = styled.section`
 
     & div:first-child {
       width: 60%;
-      max-width: 500px;
+      max-width: 600px;
     }
 
     & h1 {
-      font-size: 4.125rem;
+      font-size: var(--fs-800);
 
       & span {
-        font-size: 1.25rem;
+        font-size: var(--fs-500);
         margin-left: 10rem;
       }
     }
   }
 
   @media (min-width: 1200px) {
-    margin-top: 5.125rem;
-    padding: 0 var(--padding-side-sm) 4rem;
+    margin-top: var(--header-lg);
+    padding: 0 var(--padding-side-lg) 6rem;
 
     & div:first-child {
       width: 55%;
@@ -66,10 +67,10 @@ const Section = styled.section`
     }
 
     & h1 {
-      font-size: 6rem;
+      font-size: var(--fs-900);
 
       & span {
-        font-size: 1.875rem;
+        font-size: var(--fs-550);
         margin-left: 14rem;
       }
     }
@@ -96,13 +97,13 @@ const ImgContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    bottom: 2rem;
+    bottom: -1rem;
   }
 `;
 
 const Intro = () => {
   return (
-    <Section aria-label="intro">
+    <Section id="intro" aria-label="intro">
       <div>
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           Hey,
@@ -116,7 +117,7 @@ const Intro = () => {
           Once upon a time I dealt with banking complaints, now I code! I am a frontend developer based in London who loves to build fast, accessible, responsive web applications using the latest technologies. I appreciate beautiful things - from seeking out mind blowing landscapes on my travels to
           a stunningly simple, well designed web page with smart UI/UX.
         </p>
-        <Link href="#about">Read my story</Link>
+        <Link href="#contact">Contact me</Link>
       </div>
       <ImgContainer>
         <ProfileImage />

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NavList = styled.ul`
@@ -7,8 +6,8 @@ const NavList = styled.ul`
 
   & a {
     color: var(--clr-lightest);
+    font-size: var(--fs-450);
     text-decoration: none;
-    font-size: 1.125rem;
   }
 
   & li + li {
@@ -17,21 +16,37 @@ const NavList = styled.ul`
 
   @media (min-width: 700px) {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     & li + li {
-      margin-top: unset;
       margin-left: 2rem;
+      margin-top: unset;
     }
 
     & a {
       color: var(--clr-darkest);
-      font-size: 1rem;
+      font-size: var(--fs-400);
+      position: relative;
+    }
+
+    & a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.1rem;
+      height: 1px;
+      width: 0;
+      background-color: var(--clr-hover);
+      transition: width 0.5s;
+    }
+
+    & a:hover::after {
+      width: 100%;
     }
   }
 
   @media (min-width: 1200px) {
-    font-size: 1.125rem;
+    font-size: var(--fs-450);
 
     & li + li {
       margin-left: 3rem;
@@ -43,9 +58,9 @@ const Navlinks = ({ isOpen }) => {
   return (
     <NavList>
       <li>
-        <Link to="/" tabIndex={isOpen ? "0" : "-1"}>
+        <a href="/" tabIndex={isOpen ? "0" : "-1"}>
           Home
-        </Link>
+        </a>
       </li>
       <li>
         <a href="/#portfolio" tabIndex={isOpen ? "0" : "-1"}>
@@ -53,9 +68,9 @@ const Navlinks = ({ isOpen }) => {
         </a>
       </li>
       <li>
-        <Link to="/#about" tabIndex={isOpen ? "0" : "-1"}>
-          About me
-        </Link>
+        <a href="/#about" tabIndex={isOpen ? "0" : "-1"}>
+          My Story
+        </a>
       </li>
       <li>
         <a href="/#contact" tabIndex={isOpen ? "0" : "-1"}>

@@ -9,7 +9,7 @@ const getProjects = () =>
   client
     .getEntries({
       content_type: "portfolioItems",
-      order: "sys.createdAt",
+      order: "-sys.updatedAt",
     })
     .then((res) => res.items)
     .catch((err) => console.log(error.message));

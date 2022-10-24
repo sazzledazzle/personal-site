@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  height: 3rem;
-  width: 3rem;
   background-color: transparent;
   border: none;
-  margin-left: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 3rem;
+  width: 3rem;
+  margin-left: auto;
   z-index: 1;
 
   @media (min-width: 700px) {
@@ -28,9 +28,9 @@ const Hamburger = styled.span`
   &,
   &::before,
   &::after {
-    width: 2rem;
-    height: 1px;
     background: var(--clr-darkest);
+    height: 1px;
+    width: 2rem;
     transition: transform 0.3s ease-in-out;
   }
 
