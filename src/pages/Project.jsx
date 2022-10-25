@@ -79,7 +79,11 @@ const Project = () => {
   const params = useParams();
 
   const [project, isLoading, isError] = useSingleProject(params.project);
-  // console.log(project);
+
+  let desktopIndex;
+  if (!isLoading) {
+    desktopIndex = project.images.findIndex((obj) => obj.title.includes("desktop"));
+  }
 
   if (isError)
     return (
@@ -97,9 +101,9 @@ const Project = () => {
         <>
           <ProjectContainer>
             <ImageContainer>
-              <img src={project.images[1].file.url} alt={project.images[1].description} />
+              <img src={project.images[desktopIndex].file.url} alt={project.images[desktopIndex].description} />
               <MobileImg>
-                <img src={project.images[0].file.url} alt={project.images[0].description} />
+                <img src={project.images[1 - desktopIndex].file.url} alt={project.images[1 - desktopIndex].description} />
               </MobileImg>
             </ImageContainer>
             <TextContainer>

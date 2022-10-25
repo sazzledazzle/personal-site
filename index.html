@@ -44,12 +44,13 @@
 </head>
 
 <body>
-  <div id="root"></div>
-  <form name="contact" method="post" data-netlify="true">
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
+  <div id="root">
+    <form name="contact" method="post" data-netlify="true" style="visibility: hidden; position: absolute; top: 0">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
