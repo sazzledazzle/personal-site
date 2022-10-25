@@ -40,7 +40,13 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
 
-  @media (min-width: 700px) {
+  @media (min-width: 700px) and (orientation: portrait) {
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  @media (min-width: 1200px) {
     flex-direction: row;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
