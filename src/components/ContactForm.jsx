@@ -58,7 +58,8 @@ const Container = styled.div`
 
 const ContactForm = () => {
   return (
-    <Form name="contact" netlify>
+    <Form name="contact" method="post" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
       <Container>
         <div>
           <label htmlFor="name">

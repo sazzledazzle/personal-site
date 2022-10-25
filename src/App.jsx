@@ -1,4 +1,4 @@
-import "./styles.css";
+// import "./styles.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
